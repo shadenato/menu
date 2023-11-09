@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+
+    <style>
+        button {
+          background-color: #aa0404;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          display: inline-block;
+          font-size: 14px;
+          margin: 4px 2px;
+          cursor: pointer;
+          font-family: 'Segoe UI', sans-serif;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+
+        table {
+          color: rgb(0, 0, 0);
+          text-align: center;
+          margin: 1px 5px;
+          padding: 5px;
+          font-family: 'Segoe UI', sans-serif;
+          text-transform: uppercase;
+          border: solid 2px #aa0404b9;
+          width: 800px;
+        }
+
+        td {
+            padding: 5px;
+            width: fit-content;
+            border: solid 1px #aa040437;
+        }
+
+        th {
+            padding: 5px;
+            width: fit-content;
+            border: none;
+            background:#aa0404;
+            color: white;
+        }
+
+        th.opcoes {
+            padding: 10px;
+            width: fit-content;
+            border: none;
+            background:#aa040480;
+            color: white;
+        }
+
+        .titulo{
+            font-size: 28px;
+        }
+
+        .titulo_menor{
+            font-size: 20px;
+        }     
+        
+        .resultado_4{
+            font-size: 12px;
+            font-family: 'Consolas';
+            text-align: right;
+        }
+
+        section{
+            width: 200px;
+            background-color: rgb(250, 234, 215);
+            border-radius: 2px;
+            margin-top: 20px;
+            margin-left: 300px;
+            text-align: center;
+            padding-left: 40px;
+            padding-right: 60px;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    
+        <br>
+        <table>
+            <tr>
+                <th class="titulo" colspan="3">MENU FAST-FOOD</th>
+                <tr height="5px"></tr>
+                <tr>
+                    <th class="titulo_menor" colspan="3">
+                        LANCHES
+                    </th>
+                </tr>
+                <tr>
+                    <th>OPÇÃO</th>
+                    <th>DESCRIÇÃO</th>
+                    <th>VALOR (R$)</th>
+                </tr>
+                <tr>
+                    <th class="opcoes">1</th>
+                    <td>Hambúrguer</td>
+                    <td>R$1.36</td>
+                </tr>
+                <tr>
+                    <th class="opcoes">2</th>
+                    <td>X-burguer</td>
+                    <td>R$2.31</td>
+                </tr>
+                <tr>
+                    <th class="opcoes">3</th>
+                    <td>X-salada</td>
+                    <td>R$2.81</td>
+                </tr>
+                <tr>
+                    <th class="opcoes">4</th>
+                    <td>X-tudo</td>
+                    <td>R$3.21</td>
+                </tr>
+
+                <tr height="10px"></tr>
+                <tr>
+                    <th class="titulo_menor" colspan="3">
+                        ACOMPANHAMENTOS
+                    </th>
+                </tr>
+                <tr>
+                    <th>OPÇÃO</th>
+                    <th>DESCRIÇÃO</th>
+                    <th>VALOR (R$)</th>
+                </tr>
+                <tr>
+                    <th class="opcoes">1</th>
+                    <td>Nuggets</td>
+                    <td>R$3.69</td>
+                </tr>
+                <tr>
+                    <th class="opcoes">2</th>
+                    <td>Fritas</td>
+                    <td>R$1.58</td>
+                </tr>
+                
+
+                <tr height="10px"></tr>
+                <tr>
+                    <th class="titulo_menor" colspan="3">
+                        BEBIDAS
+                    </th>
+                </tr>
+                <tr>
+                    <th>OPÇÃO</th>
+                    <th>DESCRIÇÃO</th>
+                    <th>VALOR (R$)</th>
+                </tr>
+                <tr>
+                    <th class="opcoes">1</th>
+                    <td>Coca-cola</td>
+                    <td>R$1.48</td>
+                </tr>
+                <tr>
+                    <th class="opcoes">2</th>
+                    <td>Fanta</td>
+                    <td>R$2.58</td>
+                </tr>
+                <tr>
+                    <th class="opcoes">3</th>
+                    <td>Água</td>
+                    <td>R$0.98</td>
+                </tr>
+            
+            <tr><td colspan="3"><center><button onclick="myFunction()">Clique para fazer o pedido</button></center></td></tr>
+        </table>
+        
+    
+        <section>
+        <div id="resultado_1"></div>
+        <div id="resultado_2"></div>
+        <div id="resultado_3"></div>
+        <div id="resultado_4" class="resultado_4"></div>
+        </section>
+        
+        <script>
+            function myFunction() {
+                let opcao_hamb = Number(prompt("Digite a opção de LANCHE desejada:"));
+                let opcao_acom = Number(prompt("Digite a opção de ACOMPANHAMENTO desejada:"));
+                let opcao_bebi = Number(prompt("Digite a opção de BEBIDA desejada:"));
+                const hamb = [1.36 , 2.31 , 2.81 , 3.21];
+                const acom = [3.69, 1.58];
+                const bebi = [1.48, 2.58, 0.98];
+                let total = Number("");
+                
+                if(opcao_hamb == 1){
+                    total += hamb[0];
+                    document.getElementById("resultado_1").innerHTML="<br><pre>          RECIBO          </pre><pre> QTD ITEM            PREÇO R$</pre><pre>   1 Hambúrguer          1.36</pre>";
+                } else if (opcao_hamb == 2) {
+                    total += hamb[1];
+                    document.getElementById("resultado_1").innerHTML="<br><pre>          RECIBO          </pre><pre> QTD ITEM            PREÇO R$</pre><pre>   1 X-burguer           2.31</pre>";
+                } else if (opcao_hamb == 3) {
+                    total += hamb[2];
+                    document.getElementById("resultado_1").innerHTML="<br><pre>          RECIBO          </pre><pre> QTD ITEM            PREÇO R$</pre><pre>   1 X-salada            2.81</pre>";
+                } else if (opcao_hamb == 4) {
+                    total += hamb[3];
+                    document.getElementById("resultado_1").innerHTML="<br><pre>          RECIBO          </pre><pre> QTD ITEM            PREÇO R$</pre><pre>   1 X-tudo              3.21</pre>";
+                } else {
+                    document.getElementById("resultado_1").innerHTML="<br><pre>          RECIBO          </pre><pre> QTD ITEM            PREÇO R$</pre><pre>   0 lanche não selecion 0.00</pre>";    
+                }
+
+                if(opcao_acom == 1){
+                    total += acom[0];
+                    document.getElementById("resultado_2").innerHTML="<pre>   1 Nuggets             3.69</pre>";
+                } else if (opcao_acom == 2) {
+                    total += acom[1];
+                    document.getElementById("resultado_2").innerHTML="<pre>   1 Fritas              1.58</pre>";
+                } else {
+                    document.getElementById("resultado_2").innerHTML="<pre>   0 acomp não selecion  0.00</pre>";    
+                }
+
+                if(opcao_bebi == 1){
+                    total += bebi[0];
+                    document.getElementById("resultado_3").innerHTML="<pre>   1 Coca-cola           1.48</pre>";
+                } else if (opcao_bebi == 2) {
+                    total += bebi[1];
+                    document.getElementById("resultado_3").innerHTML="<pre>   1 Fanta               2.58</pre>";
+                } else if (opcao_bebi == 3) {
+                    total += bebi[2];
+                    document.getElementById("resultado_3").innerHTML="<pre>   1 Água                0.98</pre>";
+                } else {
+                    document.getElementById("resultado_3").innerHTML="<pre>   0 bebida não selecion 0.00</pre>";    
+                }
+                
+                document.getElementById("resultado_4").innerHTML="TOTAL " + total.toFixed(2) + "<br><br><br>";
+            }
+
+        </script>
+
+
+</body>
+</html>
